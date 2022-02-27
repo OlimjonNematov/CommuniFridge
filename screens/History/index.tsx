@@ -1,21 +1,21 @@
-import { StyleSheet } from "react-native";
-
-import EditScreenInfo from "../../components/EditScreenInfo";
-import { Text, View } from "../../components/Themed";
-import { RootTabScreenProps } from "../../types";
+import { useState } from 'react';
+import { FlatList, StyleSheet } from 'react-native';
+import { ListItemRow } from '../../components/list-item-row';
+import { Text, View } from '../../components/Themed';
 
 export default function History(){
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>history</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      >
+    const [listItems, setListItems]= useState([{title: "item1"},{title: "item2"}]);
+
+
+    return (
+      <View style={styles.container}>
+        {/* list of offers */}
+        {/* {listItems === null ? null: getOffersList}  */}
+        <FlatList 
+        data={listItems}
+        renderItem={({item}) => <ListItemRow hasHistory={true}/>}/>
       </View>
-    </View>
-  );
+    );
 }
 
 const styles = StyleSheet.create({

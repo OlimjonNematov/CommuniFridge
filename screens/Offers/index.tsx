@@ -1,13 +1,20 @@
-import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
+import { useState } from 'react';
+import { FlatList, StyleSheet } from 'react-native';
+import { ListItemRow } from '../../components/list-item-row';
+import { View } from '../../components/Themed';
 
 export default function Offers() {
+
+  const [listItems, setListItems]= useState([{title: "item1"},{title: "item2"}]);
+
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Offers</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      {/* list of offers */}
+      {/* {listItems === null ? null: getOffersList}  */}
+      <FlatList 
+      data={listItems}
+      renderItem={({item}) => <ListItemRow hasOffer={true}/>}/>
     </View>
   );
 }
