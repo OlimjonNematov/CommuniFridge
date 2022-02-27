@@ -2,12 +2,12 @@ import { StyleSheet } from 'react-native';
 
 import EditScreenInfo from '../../components/EditScreenInfo';
 import { Text, View } from '../../components/Themed';
+import CameraView from './camera';
 
 export default function Post() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>post</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <CameraView />
     </View>
   );
 }
